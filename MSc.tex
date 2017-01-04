@@ -1,0 +1,75 @@
+\documentclass[12pt,a4paper,BCOR=15mm]{scrbook} 
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx,units,color}
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{natbib}
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+\parindent0mm
+\makeatletter 
+\renewcommand\cleardoublepage{ 
+\clearpage \if@twoside \ifodd \c@page \else \hbox {}\thispagestyle{empty}\newpage 
+\if@twocolumn \hbox {}\thispagestyle{empty}\newpage  \fi \fi \fi 
+} 
+\makeatother
+%%
+\makeatletter
+\include{paperDef}
+
+\makeatother
+%%
+\begin{document}
+\pagenumbering{roman}
+\begin{titlepage}
+\centerline{\includegraphics[width=2.7cm]{tu.pdf}\hfill\includegraphics[width=2.2cm]{sfb910.jpg}}
+\vspace*{1cm}
+\begin{center}
+\large
+Technische Universität Berlin\\
+Nonlinear Dynamics and Control: \\ Neuroscience and empirical networks
+\end{center}
+\vspace*{1cm}
+\centerline{Masters thesis}
+\vspace*{1cm}
+\begin{center}
+\LARGE{\textbf{Containment strategies in networks of livestock trade}}
+\end{center}
+\medskip
+\begin{center}
+by\\
+Pascal Blunk
+\end{center}
+\vspace*{2cm}
+\centerline{Betreuer: Dr. Philipp Hövel}
+\vspace*{5cm}
+\centerline{Berlin, \today}
+\thispagestyle{empty}
+\cleardoublepage
+\end{titlepage}
+
+\tableofcontents
+
+
+\cleardoublepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{chapter}{\protect\let\protect\autodot\protect\relax\protect\numberline{ }list of figures}
+\listoffigures
+\cleardoublepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagenumbering{arabic}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Einleitung
+
+\include{intro}
+
+\include{appendix}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{DEapalike} 
+\bibliography{bachelor}[Literatur]
+\end{document} 
