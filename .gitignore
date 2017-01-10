@@ -1,2 +1,8 @@
 *.pdf
 .texpadtmp/
+*.log
+*.aux
+*.dvi
+*.lof
+*.toc
+!tu.pdf
