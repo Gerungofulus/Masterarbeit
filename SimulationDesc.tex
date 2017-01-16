@@ -1,8 +1,23 @@
 \chapter{Description of the Simulation}
-\section{Agent Based Simulation}
-\subsection{Breeding Dynamics}
-\subsection{Disease Dynamics}
+For the simulation of the disease spread in the case of BVD we decided to use an agent based model with compared with a stochastically motivated approach to calculating the infection probability and other important dynamics. The statistical data which is defining the systems data has been provided by \citep{personalCom} and further explored by \footnote{Zitat auf Inias Masterarbeit}.
+\section{Cows}
+The simulation which has been developed for this study is an agent based simulation. The life cycle of every single cow is simulated and tracked. 
 \section{Farms}
+Farms build up the different nodes of the system. Each farm can be made up of an arbitrary number of herds and a farm manager. The different implemented types will show a differences in their behaviour mainly defined by their farm manager.
+\subsection{Farm Types}
+So far 4 types of farms have been implemented which are listed below. The influence of fattening farms has been neglected so far because we did not have any data on which farms are fattening farms and because fattening farms should not have a big influence on the disease spread, since they use male cows which can not create new PIs.
+\paragraph{Simple One Herd Farm}
+The simple one herd farm (as it's name suggests) has a single herd. It will try to hold it's herd size within the boundaries given via the ini file. Furthermore it will try to rejuvinate it's population by selling a certain amount of it's population also defined by the ini file of a given time frame and then buying the same amount of cows from other farms. 
+\paragraph{Slaughterhouse}
+The slaughterhouses action will be defined by the ini file too. Either it buys all cows which have not been bought at the end of a market period or it will buy a given amount of cows per market period. One system can have an arbitrary amount of slaughterhouses.
+\paragraph{Small One Herd Farm}
+The small one herd farm shows the exact same behaviour as the simple one herd farm except for the rejuvination. The threshold in size between the simple and the small one herd farm can bet set via the ini file. 
+\paragraph{Cow Source Farm}
+The cow source farm will create new cows to put them into the system in order to keep the amount of cows in the system constant. They just sell pregnant cows. If the slaughterhouse buys a fixed amount of cows, the cow well farm will also offer a fixed amount of cows. If the slaughterhouse just works as sink for all cows which have not been sold, the cow well farm will be asked to create enough cows to satisfy the demand of all farms that hasn't been satisfied yet.
+\subsection{Farm Manager}
+The farm manager describes the behavior of the farm. So far it only calculates, which cows should be sold and how many cows of which type should be bought. Most farmers in reality would try to only buy pregnant cows, because they already survived their youth and will start giving milk right after the birth of their calf and the calf can be sold or raised right away.
+\subsection{Herds}
+A herd is a group of cows. The next infection event will calculated on a farm level calculating the transition rate following \citep{VIE04}. Other than that the herd only keeps track of the different compartments and the demography of it's members.
 \section{Disease Spread}
 \section{Trading}
 \section{Containment Strategies}
