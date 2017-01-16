@@ -7,7 +7,16 @@
 \usepackage{natbib}
 \usepackage{url}
 \usepackage{hyperref}
+\usepackage{caption}
 \usepackage[nottoc,notlot,notlof]{tocbibind}
+\usepackage{color}                           % Paket für Farben im PDF (Seitenfarbe und Textfarbe)
+\usepackage{colortbl}                   % Paket für Farben in Tabellen
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{cprotect}
+\usepackage{tabularx}
+\usepackage[singlelinecheck=false, figurename=Fig.,tablename=Tab., aboveskip=7pt, belowskip=0pt]{caption}
+\setcapindent{0pt}
 \parindent0mm
 \makeatletter 
 \renewcommand\cleardoublepage{ 
@@ -18,7 +27,9 @@
 %%
 \makeatletter
 \include{paperDef}
-
+  
+\definecolor{dunkelgrau}{rgb}{0.8,0.8,0.8}
+\definecolor{hellgrau}{rgb}{0.95,0.95,0.95}
 \makeatother
 %%
 \begin{document}
