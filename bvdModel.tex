@@ -1,15 +1,16 @@
 \section{Specific Model Of Bovine Viral Diarrhea}
 \label{chap:bvdModel}
-content: explanation of the disease
+The basic SIR-Model as it is discussed in chapter \ref{chap:generalModeling} is unfortunately not sufficient to describe a complex illness like BVD. This section therefore tries to give a brief introduction to the disease and how it can be modeled.
 
-purpose: basic understanding for BVD of the reader
-\subsection{BVD Basics}
-content: basic description of the disease, TIs, PIs, why is this a problem?
+Disclaimer: Since this is a thesis that is supposed to focus on the theoretical and mathematical description and interpretation of the phenomena observed around BVD (and the Virus BVDV), the introduction to the biological phenomena will be rather short. For this purpose the author relies on \citep{LIN03}, which is a paper that has been cited a lot and which has been published $14\,\text{years}$ earlier to this thesis, which is why the author with his limited knowledge about the field has the humble opinion that it is a very reliable source.
 
-purpose: make the chosen way of modeling reasonable
-\subsection{Compartments}
-\paragraph{Maternal Antibodies (MA)}
-\paragraph{Susceptible (S)}
-\paragraph{Transiently Infected (TI)}
-\paragraph{Recovered (R)}
-\paragraph{Permanently Infected (PI)}
+\subsection{BVD Basics}\label{chap:bvdBasics}
+Bovine Viral Diarrhea is a virus infection that leads to various symptoms depending on the status of the cow. Most of the effects which will be neglected in the modeling of the disease will also be neglected in this explanation.
+
+\paragraph{Non Pregnant Cows} If a bovine get's infected while not being pregnant, the numbers of white blood cells and thrombocytes decrease. According to \citep{LIN03} this can even lead to a lessened semen quality in infected bulls where the virus may even persist in the testicles. Furthermore the virus can be detected $4 \text{ to } 10\,\text{days}$ after infection in most secretes and \glqq clinical symptoms such as fever, post infection, inappetence and mucosal lesions\grqq. The symptom that gave this disease it's name, diarrhea, as well as coughing are mostly seen in calves, but it's not entirely clear if this might be due to a secondary infection that is caused by the immune suppressive effect of the loss of white blood cells and thrombocytes.
+A recovered cow with a normally working immune system will be immune to BVDV for the rest of it's life and it's calves will also be protected by the maternal antibodies in the cow's milk for the first $4-6\, \text{months}$ of their lives. If calves get vaccinated while being protected by maternal antibodies, the vaccination won't protect them from the disease. However the majority of farmers mixes their colostrum \citep{personalCom}. This can lead to a bigger group of immune calves, but it could possibly dilute the antibody levels below the threshold where it actually creates an immune response.
+
+\paragraph{Pregnant Cows}
+For the mother the virus will have little implications, but the unborn calve can suffer a various number of complications. The mother can become infertile, while the calve can die, have malformations, be retarded, weak or stillborn, but most importantly some calves could become persistently infected. These calves will be infectious during their whole life time and produce high amounts of the virus. Their body does not detect the virus as harmful and therefore doesn't not build up antibodies \citep{personalCom}. Calves of PIs are always PIs too. PIs have a much shorter life span, especially because they can suffer secondary illnesses such as mucosal disease which triggers diarrhea and can be survived by chronic cases for up to $18\,\text{months}$.
+\subsection{Compartmental Model}
+The alert reader may have noticed that BVD as it's discussed in chapter \ref{chap:bvdBasics} could be described with a SIR-Model with slight modifications. In addition to the model we add two new groups: the group of calves protected by maternal antibodies in their milk, the MAs, and the group of persistently infected cows, the PIs
