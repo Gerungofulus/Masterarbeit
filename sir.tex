@@ -6,40 +6,44 @@ The compartmental model usually divides the whole population into different grou
 As mentioned above the compartment splits up the whole population into several groups (compartments) which take different roles in the spreading of the studied disease.
 All of those groups $x_i \in [0,1] \text{ with } \sum_i x_i =1 $ can in general be described like this:
 \begin{eqnarray}
-&\text{     }\xrightarrow{\nu_i}  x_i \xrightarrow{\beta_ij}   \label{comp:general} \\
-&{\alpha_i} \downarrow  \nonumber
+&\text{     }\xrightarrow{\alpha_i}  x_i \xrightarrow{\lambda_ij}   \label{comp:general} \\
+&{\nu_i} \downarrow  \nonumber
 \end{eqnarray}
 where $\nu_i$ describes the influx to this group for example inhibited by births, $\beta_{ij} x_i$ is the part of members of the group $x_i$ which becomes part of the group $x_ij$ and $\alpha_i x_i$ is the part of $x_i$ that stops being part of the system. A reason for that could be a dying individual. To simplify the notation in \ref{comp:general} the influx created by $\beta_{ki} x_k$ to the compartment $x_i$ by another group $x_k$ has been included to the influx $\nu_i$. If you include the birth rate $\mu_i$ you would describe $\nu_i$ as 
 \begin{equation}
-\nu_i = \mu_i + \sum_{k\neq i}{}\beta_{ki} x_k.
+\alpha_i = \mu_i + \sum_{k\neq i}{}\lambda_{ki} x_k.
 \end{equation}
-Most of the time one will assume that the whole population is stable in size so that $\sum_i \mu_i = \sum_{k} \alpha_k$. If the disease does not affect the mortality of the different states, one would assume $\mu_i = \alpha_i$.
+Most of the time one will assume that the whole population is stable in size so that $\sum_i \mu_i = \sum_{k} \nu_k$. If the disease does not affect the mortality of the different states, one would assume $\mu_i = \alpha_i$.
 Depending on the specific disease the compartments can vary, but most diseases fall in one of the following two example for compartmental models.
 \subsubsection{SIR-Model}
 Disease like the measles which usually infect a human being only once in their life can be modeled using an SIR-Model (Susceptible-Infected-Recovered-Model). One uses three compartments of individuals who are susceptible $x_1 = S$, infected $x_2=I$ or recovered $x_3=R$. The whole system would usually be depicted as 
 \begin{eqnarray}
-\xrightarrow{\mu} &S \xrightarrow{\beta} &I  \xrightarrow{\gamma} R  \\
-{\mu} & \downarrow \text{         }\mu &\downarrow \text{  } {\mu} \downarrow \nonumber
+\xrightarrow{\mu} &S \xrightarrow{\lambda_\text{SI}} &I  \xrightarrow{\lambda_\text{IR}} R  \\
+{\nu} & \downarrow \text{         }\nu &\downarrow \text{  } {\nu} \downarrow \nonumber
 \end{eqnarray}
-with the simplifications that all newly born individuals are susceptibles and that members of all compartments die with the same rate as new individuals are born ($\alpha_i = \mu_i = \mu\, \forall i$). Furthermore you have to assume that the transition rates $\beta$ (infection of a susceptible) and $\gamma$ (recovery of an infected) individual are constant for all points in time.
+with the simplifications that all newly born individuals are susceptibles and that members of all compartments die with the same rate as new individuals are born ($\nu_i = \mu_i = \mu\, \forall i$). Furthermore you have to assume that the transition rates $\lambda_\text{SI}$ (infection of a susceptible) and $\lambda_\text{IR}$ (recovery of an infected) individual are constant for all points in time.
 If a system can be described like this, the stable state can be derived by using the following time derivatives:
 \begin{eqnarray}
-\dot{S} =& \mu -\beta SI &-  \mu S  \label{eq:sdotSIR}\\ 
-\dot{I} =& \beta SI - \gamma I  &-\mu I \\
-\dot{R} =& \gamma I & -\mu R.
+\dot{S} =& \mu -\lambda_\text{SI} SI &-  \mu S  \label{eq:sdotSIR}\\ 
+\dot{I} =& \lambda_\text{SI} SI - \lambda_\text{IR} I  &-\mu I \\
+\dot{R} =& \lambda_\text{IR} I & -\mu R. \label{eq:rdotsir}
 \end{eqnarray}
-In \ref{eq:sdotSIR} we assume that an infected individual will infect a susceptible instantly if they meet and the rate $SI$ is the rate of susceptibles and infected meeting one another. If there would be a special probability $p$ for the transmission of the given illness from an infected to a susceptible individual, we would need to replace the term $\beta SI$ with $\beta S I p$ in equation \ref{eq:sdotSIR}.
+In \ref{eq:sdotSIR} we assume that an infected individual will infect a susceptible instantly if they meet and the rate $SI$ is the rate of susceptibles and infected meeting one another. If there would be a special probability $p$ for the transmission of the given illness from an infected to a susceptible individual, we would need to replace the term $\lambda_\text{SI} SI$ with $\lambda_\text{SI} S I p$ in equation \ref{eq:sdotSIR}.
 \paragraph{Basic Reproduction Number}
-Starting with those derivatives one defines the basic reproduction number $R_0=\beta / \gamma$ assuming that the reproduction and death rate $\mu=0$ (following \citep{AND92}) by using the equations
+Starting with those derivatives one defines the basic reproduction number $R_0=\lambda_\text{SI} / \lambda_\text{IR}$ assuming that the reproduction and death rate $\mu=0$ (following \citep{AND92}) by using the equations
 \begin{eqnarray}
-\dot{S} =& \ -\beta SI &  \label{eq:newsdotSIR}\\ 
-\dot{I} =& \beta SI - \gamma I  & \label{eq:newidotSIR}\\
-\dot{R} =& \gamma I &.
+\dot{S} =& \ -\lambda_\text{SI} SI &  \label{eq:newsdotSIR}\\ 
+\dot{I} =& \lambda_\text{SI} SI - \lambda_\text{IR} I  & \label{eq:newidotSIR}\\
+\dot{R} =& \lambda_\text{IR} I &.
 \end{eqnarray}
 The trivial solution for a fix point with the premise $\dot{S} = \dot{I} =\dot{R} = 0$ (The definition of a fix point is that there is no change) is that $I=0$. By writing \ref{eq:newidotSIR} like 
 \begin{equation}
-\dot{I} = (\beta S -\gamma) I = \left( S-\frac{\gamma}{\beta} \right) \beta I
+\dot{I} = (\lambda_\text{SI} S -\lambda_\text{IR}) I = \left( S-\frac{\lambda_\text{SI}}{\lambda_\text{SI}} \right) \lambda_\text{SI} I
 \end{equation}
 one can see the number of infected will grow if $S > 1/R_0$ or fall if $S < 1/R_0$. $R_0$ could be interpreted as the number of susceptibles that get infected before an infected recovers.
 \paragraph{Stable State}
 description of the stable state (prevalence, frequency of outbreaks)
+Following the equations \ref{eq:sdotSIR} to \ref{eq:rdotsir} one can use the emerging Jacobimatrix to find a stable point using the roots of the eigenvalues. The Eigenvalues then looks like:
+\begin{equation}
+\Lambda_{1,2} = \pm 
+\end{equation}

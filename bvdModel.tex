@@ -11,6 +11,23 @@ Bovine Viral Diarrhea is a virus infection that leads to various symptoms depend
 A recovered cow with a normally working immune system will be immune to BVDV for the rest of it's life and it's calves will also be protected by the maternal antibodies in the cow's milk for the first $4-6\, \text{months}$ of their lives. If calves get vaccinated while being protected by maternal antibodies, the vaccination won't protect them from the disease. However the majority of farmers mixes their colostrum \citep{personalCom}. This can lead to a bigger group of immune calves, but it could possibly dilute the antibody levels below the threshold where it actually creates an immune response.
 
 \paragraph{Pregnant Cows}
-For the mother the virus will have little implications, but the unborn calve can suffer a various number of complications. The mother can become infertile, while the calve can die, have malformations, be retarded, weak or stillborn, but most importantly some calves could become persistently infected. These calves will be infectious during their whole life time and produce high amounts of the virus. Their body does not detect the virus as harmful and therefore doesn't not build up antibodies \citep{personalCom}. Calves of PIs are always PIs too. PIs have a much shorter life span, especially because they can suffer secondary illnesses such as mucosal disease which triggers diarrhea and can be survived by chronic cases for up to $18\,\text{months}$.
+For the mother the virus will have little implications, but the unborn calve can suffer a various number of complications. The mother can become infertile, while the calve can die, have malformations, be retarded, weak or stillborn, but most importantly some calves could become persistently infected (PIs). These calves will be infectious during their whole life time and produce high amounts of the virus. Their body does not detect the virus as harmful and therefore doesn't not build up antibodies \citep{personalCom}. Calves of PIs are always PIs too. PIs have a much shorter life span, especially because they can suffer secondary illnesses such as mucosal disease which triggers diarrhea and can be survived by chronic cases for up to $18\,\text{months}$.
+
 \subsection{Compartmental Model}
-The alert reader may have noticed that BVD as it's discussed in chapter \ref{chap:bvdBasics} could be described with a SIR-Model with slight modifications. In addition to the model we add two new groups: the group of calves protected by maternal antibodies in their milk, the MAs, and the group of persistently infected cows, the PIs
+The alert reader may have noticed that BVD as it's discussed in chapter \ref{chap:bvdBasics} could be described with a SIR-Model with slight modifications. In addition to the model we add two new groups: the group of calves protected by maternal antibodies in their milk, the MAs, the group of persistently infected cows, the PIs, and in order to make it easier to differentiate between the two groups of infected, the group normally marked as I will be called TI\footnote{In order to improve the readability of of all equations PIs will be marked as $P$, MAs as $M$ and TIs as $I$.}.
+ With a death rate of non PIs $\nu_\text{N}$, a death rate of PIs $\nu_\text{P}$, a general birth rate $\mu$ and birth rates for $\mu_1$ and $\mu_2$ we get:
+
+\begin{eqnarray}
+\dot{M}  =& \mu R-\lambda_\text{M} M -\nu_\text{N} M & \\
+\dot{S}  =& \lambda_\text{M} M - \lambda_\text{SI}SI-\lambda_\text{SP} SP &-\nu_\text{N} S + \mu S \\
+\dot{I}  =& \lambda_\text{SI}SI+\lambda_\text{SP} SP - \lambda_\text{R} I &- \nu_\text{N} I \\
+\dot{R}  =& \lambda_\text{R}I - \nu_\text{N} R +\mu_1S(t-\tau_1)I(t-\tau_1) &+\mu_1S(t-\tau_1)P(t-\tau_1) \\ 
+\dot{P}  =&  \mu P -\nu_\text{P}P + \mu_2S(t-\tau_2)I(t-\tau_2) &+ \mu_2S(t-\tau_2)P(t-\tau_2)
+\end{eqnarray}
+following \citep{BAS16}. The time delays $(t-\tau_1)$ and $(t-\tau_2)$ are visualized in \ref{fig:infectionTimeScale}\footnote{This thing is super wrong according to "BVD Programm.doc"}. 
+\begin{figure}[htbp]
+\centering
+\noindent\includegraphics[width=\linewidth,height=\textheight,
+keepaspectratio]{infectionTimeScale.png} \caption[]{This plot shows }
+\label{fig:infectionTimeScale}
+\end{figure}
