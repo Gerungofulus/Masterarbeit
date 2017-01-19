@@ -9,7 +9,7 @@ All of those groups $x_i \in [0,1] \text{ with } \sum_i x_i =1 $ can in general 
 &\text{     }\xrightarrow{\alpha_i}  x_i \xrightarrow{\lambda_ij}   \label{comp:general} \\
 &{\nu_i} \downarrow  \nonumber
 \end{eqnarray}
-where $\nu_i$ describes the influx to this group for example inhibited by births, $\beta_{ij} x_i$ is the part of members of the group $x_i$ which becomes part of the group $x_ij$ and $\alpha_i x_i$ is the part of $x_i$ that stops being part of the system. A reason for that could be a dying individual. To simplify the notation in \ref{comp:general} the influx created by $\beta_{ki} x_k$ to the compartment $x_i$ by another group $x_k$ has been included to the influx $\nu_i$. If you include the birth rate $\mu_i$ you would describe $\nu_i$ as 
+where $\nu_i$ describes the influx to this group for example inhibited by births, $\lambda_{ij} x_i$ is the part of members of the group $x_i$ which becomes part of the group $x_j$ and $\alpha_i x_i$ is the part of $x_i$ that stops being part of the system. A reason for that could be a dying individual. To simplify the notation in \ref{comp:general} the influx created by $\beta_{ki} x_k$ to the compartment $x_i$ by another group $x_k$ has been included to the influx $\nu_i$. If you include the birth rate $\mu_i$ you would describe $\nu_i$ as 
 \begin{equation}
 \alpha_i = \mu_i + \sum_{k\neq i}{}\lambda_{ki} x_k.
 \end{equation}
@@ -28,7 +28,7 @@ If a system can be described like this, the stable state can be derived by using
 \dot{I} =& \lambda_\text{SI} SI - \lambda_\text{IR} I  &-\mu I \\
 \dot{R} =& \lambda_\text{IR} I & -\mu R. \label{eq:rdotsir}
 \end{eqnarray}
-In \ref{eq:sdotSIR} we assume that an infected individual will infect a susceptible instantly if they meet and the rate $SI$ is the rate of susceptibles and infected meeting one another. If there would be a special probability $p$ for the transmission of the given illness from an infected to a susceptible individual, we would need to replace the term $\lambda_\text{SI} SI$ with $\lambda_\text{SI} S I p$ in equation \ref{eq:sdotSIR}.
+In \ref{eq:sdotSIR} we assume that an infected individual will infect a susceptible instantly if they meet and the rate $SI$ is the rate of susceptibles and infected meeting one another. 
 \paragraph{Basic Reproduction Number}
 Starting with those derivatives one defines the basic reproduction number $R_0=\lambda_\text{SI} / \lambda_\text{IR}$ assuming that the reproduction and death rate $\mu=0$ (following \citep{AND92}) by using the equations
 \begin{eqnarray}

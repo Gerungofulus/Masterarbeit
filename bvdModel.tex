@@ -18,13 +18,19 @@ The alert reader may have noticed that BVD as it's discussed in chapter \ref{cha
  With a death rate of non PIs $\nu_\text{N}$, a death rate of PIs $\nu_\text{P}$, a general birth rate $\mu$ and birth rates for $\mu_1$ and $\mu_2$ we get:
 
 \begin{eqnarray}
-\dot{M}  =& \mu R-\lambda_\text{M} M -\nu_\text{N} M & \\
-\dot{S}  =& \lambda_\text{M} M - \lambda_\text{SI}SI-\lambda_\text{SP} SP &-\nu_\text{N} S + \mu S \\
-\dot{I}  =& \lambda_\text{SI}SI+\lambda_\text{SP} SP - \lambda_\text{R} I &- \nu_\text{N} I \\
-\dot{R}  =& \lambda_\text{R}I - \nu_\text{N} R +\mu_1S(t-\tau_1)I(t-\tau_1) &+\mu_1S(t-\tau_1)P(t-\tau_1) \\ 
+\dot{M}  =& \mu R-\lambda_\text{MS} M -\nu_\text{N} M & \\
+\dot{S}  =& \lambda_\text{MS} M - \lambda_\text{SI}SI-\lambda_\text{SP} SP &-\nu_\text{N} S + \mu S \\
+\dot{I}  =& \beta_\text{SI}SI+\beta_\text{SP} SP - \lambda_\text{IR} I &- \nu_\text{N} I \label{eq:idotbvd} \\
+\dot{R}  =& \lambda_\text{IR}I - \nu_\text{N} R +\mu_1S(t-\tau_1)I(t-\tau_1) &+\mu_1S(t-\tau_1)P(t-\tau_1) \\ 
 \dot{P}  =&  \mu P -\nu_\text{P}P + \mu_2S(t-\tau_2)I(t-\tau_2) &+ \mu_2S(t-\tau_2)P(t-\tau_2)
 \end{eqnarray}
-following \citep{BAS16}. The time delays $(t-\tau_1)$ and $(t-\tau_2)$ are visualized in \ref{fig:infectionTimeScale}\footnote{This thing is super wrong according to "BVD Programm.doc"}. 
+following \citep{BAS16} with the infection probabilities when a PI or a TI meet a susceptible $\beta_\text{PI}$ and $\beta_\text{TI}$. The time delays $(t-\tau_1)$ and $(t-\tau_2)$ are visualized in \ref{fig:infectionTimeScale} 
+\footnote{This thing is super wrong according to "BVD Programm.doc"}. Equation \ref{eq:idotbvd} can be rewritten like:
+\begin{eqnarray}
+\dot{I}  =& \lambda_\text{SIges}S - \lambda_\text{IR}&I - \nu_\text{N} I, \text{ with} \\
+\lambda_\text{SI} =& \beta_\text{SI} I+ \beta_\text{PI} P.& \label{eq:vie04start}
+\end{eqnarray}
+ 
 \begin{figure}[htbp]
 \centering
 \noindent\includegraphics[width=\linewidth,height=\textheight,
