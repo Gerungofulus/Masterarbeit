@@ -14,7 +14,14 @@ A recovered cow with a normally working immune system will be immune to BVDV for
 For the mother the virus will have little implications, but the unborn calve can suffer a various number of complications. The mother can become infertile, while the calve can die, have malformations, be retarded, weak or stillborn, but most importantly some calves could become persistently infected (PIs). These calves will be infectious during their whole life time and produce high amounts of the virus. Their body does not detect the virus as harmful and therefore doesn't not build up antibodies \citep{personalCom}. Calves of PIs are always PIs too. PIs have a much shorter life span, especially because they can suffer secondary illnesses such as mucosal disease which triggers diarrhea and can be survived by chronic cases for up to $18\,\text{months}$.
 
 \subsection{Compartmental Model}
-The alert reader may have noticed that BVD as it's discussed in chapter \ref{chap:bvdBasics} could be described with a SIR-Model with slight modifications. In addition to the model we add two new groups: the group of calves protected by maternal antibodies in their milk, the MAs, the group of persistently infected cows, the PIs, and in order to make it easier to differentiate between the two groups of infected, the group normally marked as I will be called TI\footnote{In order to improve the readability of of all equations PIs will be marked as $P$, MAs as $M$ and TIs as $I$.}.
+The alert reader may have noticed that BVD as it's discussed in chapter \ref{chap:bvdBasics} could be described with a SIR-Model with slight modifications. 
+\begin{figure}[htbp]
+\centering
+\noindent\includegraphics[width=\linewidth,height=\textheight,
+keepaspectratio]{bvdDia.png} \caption[]{This plot shows }
+\label{fig:bvdDia}
+\end{figure}
+In addition to the model we add two new groups: the group of calves protected by maternal antibodies in their milk, the MAs, the group of persistently infected cows, the PIs, and in order to make it easier to differentiate between the two groups of infected, the group normally marked as I will be called TI\footnote{In order to improve the readability of of all equations PIs will be marked as $P$, MAs as $M$ and TIs as $I$.}.
  With a death rate of non PIs $\nu_\text{N}$, a death rate of PIs $\nu_\text{P}$, a general birth rate $\mu$ and birth rates for $\mu_1$ and $\mu_2$ we get:
 
 \begin{eqnarray}
