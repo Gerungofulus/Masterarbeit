@@ -22,7 +22,7 @@ keepaspectratio]{bvdDia.png} \caption[]{This plot shows }
 \label{fig:bvdDia}
 \end{figure}
 In addition to the model we add two new groups: the group of calves protected by maternal antibodies in their milk, the MAs, the group of persistently infected cows, the PIs, and in order to make it easier to differentiate between the two groups of infected, the group normally marked as I will be called TI\footnote{In order to improve the readability of of all equations PIs will be marked as $P$, MAs as $M$ and TIs as $I$.}.
- With a death rate of non PIs $\nu_\text{N}$, a death rate of PIs $\nu_\text{P}$, a general birth rate $\mu$ and birth rates for $\mu_1$ and $\mu_2$ we get:
+ With a death rate of non PIs $\nu_\text{N}$, a death rate of PIs $\nu_\text{P}$, a general birth rate $\mu$ and birth rates for recovered $\mu_1$ and PIs $\mu_2$ after an infected met a susceptible at the right point in time we get:
 
 \begin{eqnarray}
 \dot{M}  =& \mu R-\lambda_\text{MS} M -\nu_\text{N} M & \\
@@ -37,7 +37,7 @@ following \citep{BAS16} with the infection probabilities when a PI or a TI meet 
 \dot{I}  =& \lambda_\text{SIges}S - \lambda_\text{IR}&I - \nu_\text{N} I, \text{ with} \\
 \lambda_\text{SI} =& \beta_\text{SI} I+ \beta_\text{PI} P.& \label{eq:vie04start}
 \end{eqnarray}
- 
+
 \begin{figure}[htbp]
 \centering
 \noindent\includegraphics[width=\linewidth,height=\textheight,
