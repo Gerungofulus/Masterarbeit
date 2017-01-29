@@ -1,4 +1,4 @@
-\chapter{Description of the Simulation}
+\chapter{Qualitative Description Of The Simulation}
 Computers have been used for numerical studies since their invention. Especially in the field of nonlinear dynamics and complex systems they are the only useful tool to analyze certain systems because their chaotic behavior can not be easily predicted using analytical studies. Different styles of simulations haven been developed throughout the days. For the simulation of the disease spread in the case of BVD we decided to use an agent and event based model with compared with a stochastically motivated approach to calculating the infection probability and other important dynamics. The statistical data which is defining the systems data has been provided by \citep{personalCom} and further explored by \footnote{Zitat auf Inias Masterarbeit}. This chapter will explain the details of the setup system.
 \section{Event based simulation}
 Most numerical studies work with quasi continuous integrators. By changing the system state in small time steps $dt$ the system can be approximated. Another approach has been chosen for this simulation. Some integrators adapt the time steps $dt$ so that only noticeable changes in system states can be noticed. The event based simulation uses a very similar approach. The system calculates the time of the next event and skips the time interval till the next event. One event can trigger a series of other events that will be scheduled. 
@@ -39,7 +39,7 @@ BVD spreads from one farm to another within the body of an infected cow. Therefo
 \lambda_\text{SI}^k = \lambda_\text{SI} + \sum_{l \neq k} \beta^{lk}_\text{PI} P^l
 \end{equation}
 given in \citep{VIE04}. The probability $\beta_\text{SI} \in [0.1,0.3] $ is relatively low compared to $\beta_\text{PI} \geq 0.99$, which is why it can be neglected for the inter herd transmission.
-\item The total infection rate for all herds is then calculated multiplying by $S^k$: $p^{(k)} = S^k \lambda_\text{SI}^k $.
+\item The total infection rate for all herds is then calculated multiplying by $S^k$: $p^{(k)} = S^k \lambda_\text{SI}^k $. Note that if we would handle herds of a farm as a network of herds with a Adjacency matrix $A$ with entries $a_{ij}$, we would be able to write $\beta_\text{PI}^{kl}= \beta_\text{PI} a_{lk}$ because we use the convention of an entry $a_{ij}$ corresponding to a link between node $j$ and node $i$.
 \item The time $t^k$ for the next infection in this herd is calculated using\\ {\tt gsl\_ran\_exponential($1/p^{(k)}$)} from the gnu scientific library.
 \item The shortest time is chosen to schedule the next infection event, if it is not bigger then the execution time of any already scheduled infection event.
 \end{enumerate}
@@ -67,7 +67,7 @@ For all experiments in this thesis it has been decided to set the preference of 
 \rowcolor{hellgrau}           OLD\_BULL   &  m  & every other bull   \\\hline           
 \end{tabular}
 
-\caption{Different cow trade criteria as they are defined in code. The {\tt bvd\_const::age\_threshold\_calf} is set in {\tt Model\_Constants.h}. At the time of writing this, it is set to $ 180 \, \text{days} $.}
+\caption[Explanation of Cow Trade Criteria]{Different cow trade criteria as they are defined in code. The {\tt bvd\_const::age\_threshold\_calf} is set in {\tt Model\_Constants.h}. At the time of writing this, it is set to $ 180 \, \text{days} $.}
 \label{tab:cowTradeCrit} 
 \end{center}
 \end{table}

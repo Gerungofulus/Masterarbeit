@@ -33,6 +33,13 @@
 \definecolor{hellgrau}{rgb}{0.95,0.95,0.95}
 \makeatother
 %%
+
+\newcommand{\cows}{\,\text{cows}}
+\newcommand{\days}{\,\text{days}}
+
+
+
+%%
 \begin{document}
 \pagenumbering{roman}
 
@@ -45,6 +52,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \addcontentsline{toc}{chapter}{\protect\let\protect\autodot\protect\relax\protect\numberline{ }List of Figures}
 \listoffigures
+\listoftables
 \cleardoublepage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -56,6 +64,7 @@
 \include{intro}
 \include{diseaseDynamics}
 \include{SimulationDesc}
+\include{QuantitativeDescrOfSim}
 \include{Results}
 \include{end}
 \include{appendix}

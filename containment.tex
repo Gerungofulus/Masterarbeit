@@ -29,7 +29,7 @@ The YCW is a very effective way of measuring the herd prevalence. Following tabl
                               
 \end{tabular}
 
-\caption{Number of animals $n$ of a population $N$ that need to be tested to prove with a certainty of $95\%$ that the prevalence in the herd is below $20\%$ according to \protect\citep{flileitfaden15}.}
+\caption[Sample Sizes For Young Calf Window]{Number of animals $n$ of a population $N$ that need to be tested to prove with a certainty of $95\%$ that the prevalence in the herd is below $20\%$ according to \protect\citep{flileitfaden15}.}
 \label{tab:certaintyPrevalenceTest} 
 \end{center}
 \vspace{-70pt}
@@ -53,12 +53,12 @@ If a test is negative, the mother will also be marked negative, because calves o
 \paragraph{Strategy III - New BVD Regulation}
 The new BVD regulation limits the time span to remove a cow that has been tested positive to 40 days. Additionally the farm will be put under quarantine for this time. 
 \paragraph{Strategy IV - New BVD Regulation + Vaccination}
-In addition to the rules of the new BVD regulation all cows need to be vaccinated.
+In addition to the rules of the new BVD regulation all cows need to be vaccinated. They will be vaccinated righter after 6 months when the maternal antibodies stop working and the vaccination will be applied again every year. 
 \paragraph{Strategy V - New BVD regulation + Young Calf Window}
 As explained above the idea of the YCW is to test the prevalence of the whole herd. In case that one of the $n$ tested cows is tested positive, the farm has to test more cows. The rules for the whole procedure are made by the federal state. This thesis focuses on Thuringia, but the rules for Bavaria (a neighbor federal state) and Austria are given for comparison.
 \subparagraph{Thuringia}
 \begin{itemize}
-\item $n = 15\,\text{cows}$ need to be tested.
+\item $n = 15\,\text{cows}$ need to be tested (compare to table \ref{tab:certaintyPrevalenceTest}).
 \item All cows need to be older then 6 months, so that they are not protected by maternal antibodies.
 \item All animals need to be unvaccinated.
 \item The sample group should have the same demography as the farm as a whole.
@@ -96,8 +96,11 @@ need to be examined. Calves of pregnant cows need to be tested about 2-6 months 
 \end{itemize}
 \paragraph{Strategy VI - New BVD regulation + Vaccination + young calf window} 
 This strategy tests all the techniques discussed above.
-\subsection{Mathematical Expression Of Containment Strategies}
-All containment strategies aim to lower the probability of infection. Since the probability of transmitting the virus in the case that two individuals can't be reduced, the probability of infected cows meeting susceptible cows needs to be reduced. 
+\subsection{Mathematical Implications Of Containment Strategies}
+All containment strategies aim to lower the probability of infection. Since the probability of transmitting the virus in the case that two individuals meet can't be reduced, the probability of infected cows meeting susceptible cows needs to be reduced. 
+Testing and culling of animals which were tested reduces the number of infected (TIs and PIs), especially the number of PIs. This is basically done by increasing the death rate of both groups. 
+Quarantine changes the structure of the network. It will set at least the outgoing component of the adjacency matrix of this farm to zero, thereby reducing the probability for other farms to add a TI or PI to their farm. Unfortunately the test does not detect all infecteds, so there is still a small entry rate of PIs and TIs in every farm.
+The YCW is just another way of improving the certainty that a infection in the herd is detected thereby increasing the effect of the other two methods.
 
 \section{Real World Results Of Existing Legislation}\label{chap:rlData}
 For later comparison with the results of our numerical studies some results will be presented here. 
