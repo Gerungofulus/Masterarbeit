@@ -19,7 +19,7 @@ Farms build up the different nodes of the system. Each farm can be made up of an
 \subsection{Farm Types}
 So far 4 types of farms have been implemented which are listed below. The influence of fattening farms has been neglected so far because we did not have any data on which farms are fattening farms and because fattening farms should not have a big influence on the disease spread, since they use male cows which can not create new PIs.
 \paragraph{Simple One Herd Farm}
-The simple one herd farm (as it's name suggests) has a single herd. It will try to hold it's herd size within the boundaries given via the ini file. Furthermore it will try to rejuvinate it's population by selling a certain amount of it's population also defined by the ini file of a given time frame and then buying the same amount of cows from other farms. 
+The simple one herd farm (as it's name suggests) has a single herd. It will try to hold it's herd size within the boundaries given via the ini file. Furthermore it will try to rejuvinate it's population by selling a certain amount of it's population also defined by the ini file of a given time frame and then buying the same amount of cows from other farms. The default value for the rejuvination has been set to $27.9\,\%$ per year according to the yearly replacement rate given by Gethmann
 \paragraph{Slaughterhouse}
 The slaughterhouses action will be defined by the ini file too. Either it buys all cows which have not been bought at the end of a market period or it will buy a given amount of cows per market period. One system can have an arbitrary amount of slaughterhouses.
 \paragraph{Small One Herd Farm}
@@ -45,20 +45,25 @@ given in \citep{VIE04}. The probability $\beta_\text{SI} \in [0.1,0.3] $ is rela
 \end{enumerate}
 This process is repeated every time the infection rate changes. This happens when any of the cows changes it's health state, a new cow is born or a cow dies or a trade occurs. 
 \section{Trading}\label{chap:tradeDesc}
-The trading behavior of the whole system is defined by multiple fractions. It all starts with the farm managers and is then organized by the market.
+The trading behavior of the whole system is defined by multiple fractions. It all starts with the farm managers and is then organized by the market. The basic scheme is shown in figure \ref{fig:tradingScheme}.
+\begin{figure}[htbp]
+\centering
+\noindent\includegraphics[width=0.8\linewidth,height=\textheight,
+keepaspectratio]{MarketFlow.png} 
+\caption[Trading Scheme]{The picture shows the basic scheme of the whole trading system. All in all the system is a little more complex, but this diagram gives a good idea on the process. The upper section of an object's box contains it's relevant member variables whereas the lower part contains the most important functions. Note that not all function names resemble the function names in the code by a hundred percent.}
+\label{fig:tradingScheme}
+\end{figure}
 \subsection{Farm Manager}
-The trading is processed once every trading period $T$ which can be set using the ini file. All farm managers will be asked to register cows at the market using the market's {\tt register\_offer} method and ask for new cows using the market's {\tt register\_demand} method. They can specify the amount of cows they'd like to receive for one of the following so called {\tt Cow\_Trade\_Criteria} shown in \ref{tab:cowTradeCrit}, but the market can be set to ignore this preference. 
-For all experiments in this thesis it has been decided to set the preference of all farms to {\tt PREGNANT} according to the hypothesis given in \ref{chap:farmManager}. 
+The trading is processed once every trading period $T$ which can be set using the ini file. It is triggered by the global {\tt MANAGE} event. All farm managers will be asked to register cows at the market using the market's {\tt register\_offer} method and ask for new cows using the market's {\tt register\_demand} method. They can specify the amount of cows they'd like to receive for one of the following so called {\tt Cow\_Trade\_Criteria} shown in \ref{tab:cowTradeCrit}, but the market can be set to ignore this preference. 
 
-\begin{table}[htb]%{r}{0.35\textwidth}
-
+\begin{table}[htb]
     \begin{center}
     \begin{tabular}{|ccc|}\hline
         \rowcolor{dunkelgrau} Cow\_Trade\_Criterium  & sex [m/f] & age [days] or other criterium \\\hline
                               CALF  & f& $\leq {\tt bvd\_const::age\_threshold\_calf}$\\\hline
 \rowcolor{hellgrau}           HEIFER\_PRE\_BREEDING  & f& $\leq 527$\footnotemark \\\hline
                               HEIFER\_RDY\_BREEDING  & f& every other age \\\hline
-\rowcolor{hellgrau}           INFERTILE  & f& female, infertile cow \\\hline
+\rowcolor{hellgrau}           INFERTILE  & f& female, infertile cow\footnotemark \\\hline
                               PREGNANT  & f& is pregnant\\\hline
 \rowcolor{hellgrau}           DAIRY\_COW  & f& has had a calve\\\hline 
                               OLD\_COW & f& $> 1488 $\\ \hline
@@ -66,14 +71,31 @@ For all experiments in this thesis it has been decided to set the preference of 
                                YOUNG\_BULL & m  &  $\leq 186$  \\\hline 
 \rowcolor{hellgrau}           OLD\_BULL   &  m  & every other bull   \\\hline           
 \end{tabular}
-
 \caption[Explanation of Cow Trade Criteria]{Different cow trade criteria as they are defined in code. The {\tt bvd\_const::age\_threshold\_calf} is set in {\tt Model\_Constants.h}. At the time of writing this, it is set to $ 180 \, \text{days} $.}
 \label{tab:cowTradeCrit} 
 \end{center}
 \end{table}
-\footnotetext{By now this has been fixed, but it could be changed in the future.}
-\subsection{Market}
-The market receives the various demands and offers and processes it. It holds two containers for all cow trade criteria, which are queues in the current implementation. When a demand or offer has been placed, it will be put at the end of the corresponding queue. After that the market will try to match the offers and demands in the queue. After all farms have posted all their offers and demands and all of them have been matched, the queues get flushed. When the slaughterhouse works as sink, the cows from all offers will be dumped to it. Then all demands will be satisfied by cows from the cow well farm (compare \ref{chap:farmManager}). When the market tries to schedule a trade, it will run different filters on it first. By now the filters only make sure that the source farm does not trade with a slaughterhouse and that a farm does not trade with itself. If a trade is rejected by the filters, the cow will be pushed on a buffer queue (to avoid trying it more then once). After 
+\footnotetext{Until now this values has been fixed, but it could be changed in the future.}
+\footnotetext{This is not used yet, since no cows become infertile.}
+For all experiments in this thesis it has been decided to set the preference of all farms to buy {\tt PREGNANT} cows only according to the hypothesis given in section \ref{chap:farmManager}. 
+Currently two different ways of deciding which cows to offer at the market are implemented. After the farm manager has calculated how many cows it wants to sell, it has two decide, how to distribute this number between the different {\tt Cow\_Trade\_Criteria}. For this it has a list of lists of criteria. It will work through the outer list until it satisfied it's needs for cows to sell. It will split up the number of cows it needs evenly on all criteria of the inner list. Currently two different combinations have been implemented. The first selling strategy {\tt evenlyDistributed} has only one inner list containing all criteria so that it will split up the number of cows to sell evenly on them. The other strategy {\tt OldCowsFirst} contains the following lists
+\begin{itemize}
+\item MALE\_CALF, YOUNG\_BULL, OLD\_BULL, INFERTILE
+\item OLD\_COW
+\item HEIFER\_PRE\_BREEDING  
+\item HEIFER\_RDY\_BREEDING
+\item CALF
+\item PREGNANT, DAIRY\_COW .
+\end{itemize}
+
+\subsection{Market}\label{chap:market}
+The market receives the various demands and offers and processes it. Depending on it's configuration it will behave differently.
+\paragraph{Registering Offers And Demands}
+First the cows and demands get stored in containers, which are queues in the current implementation. If the market is set to respect the demand of the different farms, it will create a queue for each {\tt Cow\_Trade\_Criteria}, else it will just create one queue for all offers and one queue for all demands. When a demand or offer has been placed, it will be put at the end of the corresponding queue. After that the market will try to match the offers and demands in the queue (see figure \ref{fig:tradingScheme}). If the slaughterhouse is set to work in \glqq demand\grqq mode, both the slaughterhouse and the cow well farm will register offers and demands according to the settings in the ini file. If the mode is set to \glqq dump\grqq, they will only get important during the phase of flushing the queues.
+
+\paragraph{Flushing The Queues}
+After all farms have posted all their offers and demands and all of them have been matched, the queues get flushed. If the slaughterhouse does not work as a sink, it will simply empty the queues, else the cows from all offers will be dumped to it and all demands will be satisfied by cows from the cow well farm (compare \ref{chap:farmManager}). When the market tries to schedule a trade, it will run different filters on it first. By now the filters only make sure that the source farm does not trade with a slaughterhouse and that a farm does not trade with itself. If a trade is rejected by the filters, the cow will be pushed on a buffer queue (to avoid trying it more then once). After all possible matches have been processed, the cows from the bufferQueue will be pushed back to the corresponding queue in the market.
+
 \section{Containment Strategies}
 All containment strategies are implemented system wide. They are turned on and off by special events which can be set using the ini file. 
 \subsection{Eartag Testing}
