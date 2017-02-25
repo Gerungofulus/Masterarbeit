@@ -1,5 +1,5 @@
 \chapter{Qualitative Description Of The Simulation}
-Computers have been used for numerical studies since their invention. Especially in the field of nonlinear dynamics and complex systems they are often the only useful tool to analyze certain systems because their chaotic behavior can +not be easily predicted using analytical studies. Different kinds of simulations haven been developed throughout the days. For the simulation of the disease spread in the case of BVD we decided to use an agent- and event-based model with a stochastically motivated approach to calculating the infection probability and other important dynamics. The statistical data which defines the system's data has been provided by \citep{personalCom} and further explored by \footnote{Zitat auf Inias Masterarbeit}. This chapter will explain the details of the setup system.
+Computers have been used for numerical studies since their invention. Especially in the field of nonlinear dynamics and complex systems they are often the only useful tool to analyze certain systems because their chaotic behavior cannot be easily predicted using analytical studies. Different kinds of simulations haven been developed throughout the days. For the simulation of the disease spread in the case of BVD we decided to use an agent- and event-based model with a stochastically motivated approach to calculating the infection probability and other important dynamics. The statistical data which defines the system's data has been provided by \citep{personalCom} and further explored by \footnote{Zitat auf Inias Masterarbeit}. This chapter will explain the details of the setup system.
 \section{Event based simulation}
 Most numerical studies work with quasi continuous integrators. By changing the system state in small time steps $dt$ the system can be approximated. Another approach has been chosen for this simulation. Some integrators adapt the time steps $dt$ so that significant changes are made during every step of the simulation. The event-based simulation uses a very similar approach. The system calculates the time of the next event and skips the time interval till the next event. One event can also trigger a series of other events that will be scheduled. 
 \section{Cows (Agents)}
@@ -11,7 +11,7 @@ The simulation, which has been developed for this study, is an agent-based simul
 \item reproductional status (is there a calf and what is its status?),
 \item sex,
 \item the remaining number of calves and
-\item status of the last test.
+\item result of the last test.
 \end{itemize}
 
 \section{Farms}
@@ -31,12 +31,12 @@ The farm manager describes the behavior of the farm. So far it only calculates, 
 \subsection{Herds}
 A herd is a group of cows. The next infection event will calculated on a farm level calculating the transition rate following \citep{VIE04} (equation (\ref{eq:vie04})). Other than that the herd only keeps track of the different compartments and the demography of it's members.
 \section{Disease Spread}
-BVD spreads from one farm to another within the body of an infected cow. Therefore only the disease dynamics within a farm need to be simulated with their own code. The description of the trading system is placed in section \ref{chap:tradeDesc}. As mentioned above, the simulation takes a stochastic approach to modeling the disease dynamics. The time of the next infection in a farm is calculated with the following: \\
+BVD utilizes cows as its main carrier for spreading from one farm into another. Therefore only the disease dynamics within a farm need to be simulated with their own code. The description of the trading system is placed in section \ref{chap:tradeDesc}. As mentioned above, the simulation takes a stochastic approach to modeling the disease dynamics. The time of the next infection in a farm is calculated with the following: \\
 \begin{enumerate}
 \item The transition probabilities $\lambda_\text{SI}^k$ for every single herd $k$ are calculated following equation (\ref{eq:vie04start}).
 \item Then the inter-herd transmission coefficients $\beta^{kl}_\text{PI}$ from herd $k$ to herd $l$ are used to calculate the full transition rate:
 \begin{equation}
-\lambda_\text{SI}^k = \lambda_\text{SI} + \sum_{l \neq k} \beta^{lk}_\text{PI} P^l \label{eq:vie04}
+\lambda_\text{SI}^k = \lambda_\text{SI} + \sum_{l \neq k} \beta^{kl}_\text{PI} P^l \label{eq:vie04}
 \end{equation}
 given in \citep{VIE04}. The probability $\beta_\text{SI} \in [0.1,0.3] $ is relatively low compared to $\beta_\text{PI} \geq 0.99$, which is why it can be neglected for the inter herd transmission.
 \item The total infection rate for all herds is then calculated multiplying by $S^k$: $p^{(k)} = S^k \lambda_\text{SI}^k $. Note that if we handled herds of a farm as a network of herds with a Adjacency matrix $A$ with entries $a_{ij}$, we would be able to write $\beta_\text{PI}^{lk}= \beta_\text{PI} a_{lk}$ because we use the convention of an entry $a_{ij}$ corresponding to a link between node $i$ and node $j$.

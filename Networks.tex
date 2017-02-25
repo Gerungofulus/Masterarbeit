@@ -23,7 +23,7 @@ A = \left( \begin{matrix}
  \end{matrix}
  \right). \label{eq:adjMatExamp}
 \end{equation}
-Note that the entries $a_{ii}$ of $A$ are always $1$ (every node is connected to itself) and that the matrix would be symmetric if all links were bidirectional. 
+Note that the matrix would be symmetric if all links were bidirectional. 
 If certain links were stronger than others, one would attach so called weights to the vertices, which could for example represent the number of cows being traded from one farm to another. If the link represented by $a_{rs}$ had a strength (or weight) of $85$, this would be represented by $a_{rs}= 85$. 
 \paragraph{Reachability}
 One way of determining if node $k$ is reachable by node $l$ in $n$ steps is taking the $n$th power of $A$ and inspecting its entry $a_{lk}$. For example the potencies 
