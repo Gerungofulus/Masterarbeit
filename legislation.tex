@@ -1,0 +1,87 @@
+\section{Existing Legislation and its Results}\label{chap:rlData}
+For later comparison with the results of our numerical studies some results will be presented here. The corresponding legislation will be discussed first.
+\subsection{Legislation}
+This subsection gives a brief introduction to the existing legislation which is relevant to this thesis. 
+\subsection{Databases}\label{chap:hitdatabase}
+EEC regulation \citep{verordnung17602000}, which has been transformed into an EU regulation and expanded multiple times, regulates which data of cattle has to be gathered in state-level databases. HI Tier (Herkunftssicherungs- und Informationssystem für Tiere, \citep{HIT}) is the German implementation of that system regulated by \citep{RiRegDG}. Its functionality is described in \citep{HITManual}.
+\subsection{BVD Regulation}
+nation wide regulations were out in place, to prevent further spreading of BVDV within German cattle farms. This old regulation from 2010 has been changed in 2016.
+\subsubsection{Old BVD Regulation}
+The old BVD regulation \citep{bvdvoold} defines a few rules, which have to be followed. First of all all newborn calves have to be tested for BVDV and older cows which are supposed to be traded, need to be tested, too. The leaflet \citep{bvdvorheinlandpfold} recommends combining the test with the application of the ear tag of each calve. It furthermore states that the cost for the tests as well as the removal of ill cows within two weeks after a positive test will be paid by the federal state, which is a measure taken by multiple federal states according to \citep{personalCom}. If a bovine is only brought directly to the slaughterhouse, the veterinary or a fattening farm, which only sell cows to a slaughterhouse, it does not need to be tested. Furthermore the regulation defines the status of a farm to be BVD free, which means that for at least twelve months all calves over the age of six months have been tested negative and no signs of an infection have been noticed. The status can be maintained by further negative test results. As mentioned in the previous chapter on virological tests, farmers can decide to wait for a second positive test before removing the cow, but the leaflet mentioned above recommends to only do that for very valuable calves. If a calve has not been tested again after 60 days, it needs to be removed without any further options. According to \citep{openagrar_mods_00019481} the state of the animal needs to reported to the HIT database. It states that 
+\subsubsection{New BVD Regulation}
+In 2016 the new BVD regulation \citep{bvdverordnungaenderung},\citep{bvdvonew} replaced the older version from 2010 (see above). It reduced the maximum timespan for a second test from 60 to 40 days and after a positive test the respecting farm is put under quarantine till the second test has taken place.
+\subsubsection{Definitions of Young Calf Window Procedure}\label{chap:ycwdef}
+Different (federal) states decided on different rules for choosing the cows to be tested for the young calf window testing procedure. 
+\subparagraph{Thuringia}\label{chap:stratThuringia}
+\begin{itemize}
+\item $n = 15\,\text{cows}$ need to be tested (compare to table \ref{tab:certaintyPrevalenceTest}).
+\item All cows need to be older then 6 months, so that they are not protected by maternal antibodies.
+\item All animals need to be unvaccinated.
+\item The sample group should have the same demography as the farm as a whole.
+\end{itemize}
+Gethmann suggested to test all animals after a positive test of one of these tested cows, since there is no single procedure that has to be taken afterwards. While all cows are tested, the farm has to be put under quarantine. If one or more animals are found to be PIs, they have to be found immediately. Calves of cows that were pregnant during this phase need to be tested at an age of 2-6 months (compare to Bavaria' procedure). Furthermore Gethmann suggested to test two subscenarios:
+\begin{itemize}
+\item a) testing once a year
+\item b) test every $6\,\text{months}$
+\end{itemize}
+
+\subparagraph{Bavaria}
+\begin{itemize}
+\item $n = 5\,\text{cows}$ need to be tested. If the stable is divided into parts, at least $n = 3\,\text{cows}$ need to be tested for every section. 
+\item All animals need to be unvaccinated.
+\item The tested cows need to be older then 9, but younger than $24\,\text{months}$.
+\end{itemize}
+If all test results are negative, all cows that have been in the farm for more than $6\,\text{months}$ are marked as non-PIs, if they did arrive in the farm below the age of $24\,\text{months}$. This test has to be repeated every $5-7\,\text{months}$.
+If one of the tests is positive, all 
+\begin{itemize}
+\item female cows between the age of $2-24\,\text{months}$ and
+\item male cows between the age of $2-9\,\text{months}$
+\end{itemize}
+need to be examined. Calves of pregnant cows need to be tested about 2-6 months after their birth.
+\subparagraph{Austria}
+\begin{itemize}
+\item $n = 15\,\%\text{ of all cows}$, but at least $n = 5\,\text{young cows}$ need to be tested.
+\item All cows need to be older then 6 months, so that they are not protected by maternal antibodies.
+\item All animals need to be unvaccinated.
+\item The tested cows need to be older then 6, but younger than $24\,\text{months}$.
+\item If the herd has less then 5 animals of the age, the 5 youngest cows above the age of $6\,\text{months}$  need to be tested.
+\item The difference between the oldest and youngest tested cow needs to be 4 months. 
+\item All tested cows need to be part of the herd for at least 3 months.
+\item Cows which have been tested positive for antibodies before do not need to be tested again.
+\item If there are less then $n = 5\,\text{cows}$ to be tested, all cows which fit into this scheme need to be tested.
+\end{itemize}
+\paragraph{Strategy VI - New BVD regulation + Vaccination + young calf window} 
+This strategy tests all the techniques discussed above.
+\subsection{Mathematical Implications of Containment Strategies}
+All containment strategies aim to lower the probability of infection. Since the probability of transmitting the virus in the case that two individuals meet can not be reduced, the probability of infected cows meeting susceptible cows needs to be reduced. 
+Testing and culling of animals, which were tested positive, reduces the number of infected (TIs and PIs), especially the number of PIs. This is basically done by increasing the death rate of both groups. 
+Quarantine changes the structure of the network. It will set at least the outgoing component of the adjacency matrix of this farm to zero, thereby reducing the probability for other farms to add a TI or PI to their farm. Unfortunately the test does not detect all infecteds, so there is still a small entry rate of PIs and TIs in every farm.
+The YCW is just another way of improving the certainty that a infection in the herd is detected thereby increasing the effect of the other two methods.
+\subsection{Prevalences without any Regulation}
+
+\paragraph{Germany}
+\subsection{Regulation in Germany}\label{chap:rlDataRegulationGermany}
+\paragraph{Thuringia}
+The distribution of the different compartments of a single farm with PIs which have been in this farm for some time is the following:
+\\
+\begin{minipage}[t]{0.5\linewidth}
+No PIs
+    \begin{itemize}
+    \item $S= 79\,\%$
+\item $I= 2\,\%$
+\item $P= 0\,\%$ 
+\item $R= 29\,\%$
+    \end{itemize}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+PIs for a long time
+    \begin{itemize}
+    \item $S= 46\,\%$
+\item $I= 6\,\%$
+\item $P= 2\,\%$ 
+\item $R= 46\,\%$.
+    \end{itemize}
+\end{minipage}
+\\
+A survey across all of Thuringia in 2010 revealed those distributions. This survey revealed that $534\,\text{PIs}$ were living in $211\,\text{farms}(\approx 2\,\%)$. of all farms.\footnote{ (Quelle) }
+
