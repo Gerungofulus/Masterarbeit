@@ -28,7 +28,8 @@ If a system can be described like this, the stable state can be derived by using
 \dot{I} =& \lambda_\text{SI} SI - \lambda_\text{IR} I  &-\mu I \\
 \dot{R} =& \lambda_\text{IR} I & -\mu R. \label{eq:rdotsir}
 \end{eqnarray}
-In equation (\ref{eq:sdotSIR}) we assume that an infected individual will infect a susceptible instantly, if they meet and the rate $SI$ is the rate of susceptibles and infected meeting one another. 
+In equation (\ref{eq:sdotSIR}) we assume that an infected individual will infect a susceptible instantly with a probability $\lambda_\text{SI}$, if they meet and the rate $SI$ is the rate of susceptibles and infected meeting one another. This requires that the population is well mixed. If the population is not well mixed, a probability of individuals from the different departments meeting each other would need to be introduced. 
+
 \paragraph{Basic Reproduction Number}
 Starting with those derivatives one defines the basic reproduction number $R_0=\lambda_\text{SI} / \lambda_\text{IR}$ assuming that the reproduction and death rate $\mu=0$ (following \citep{AND92}) by using the equations
 \begin{eqnarray}

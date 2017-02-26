@@ -1,6 +1,6 @@
 \chapter{Quantitative Description Of The Simulation And Reality}
 For the evaluation of the effectivity of the containments strategy tested, it is necessary to make the simulation as realistic as possible. Still some assumptions will be made to keep the complexity and runtime reasonable. 
-All statistics given here have been provided by Dr. Jörn Gethmann and Dr. Hartmut Lentz \citep{personalCom},\citep{personalCom1} of the FLI for the sake of implementing the simulation. They have been extracted from HI Tier (Herkunftssicherungs- und Informationssystem für Tiere, \citep{HIT}), a nation wide database database containing data about cattle in Germany. All cows need to be registered in this database as soon as they get an ear tag. Every trade needs to be announced here. This means every farmer has to register a cow that left his/her premise and the farmer on the receiving end need to input that he got the cow with the specified ear tag. Every death and every import or export needs to be tracked here as well.
+All statistics given here have been provided by Dr. Jörn Gethmann and Dr. Hartmut Lentz \citep{personalCom},\citep{personalCom1} of the FLI for the sake of implementing the simulation. They have been extracted from HI Tier (compare chapter \ref{chap:hitdatabase}), a nation wide database database containing data about cattle in Germany. All cows need to be registered in this database as soon as they get an ear tag. Every trade needs to be announced here. This means every farmer has to register a cow that left his/her premise and the farmer on the receiving end need to input that he got the cow with the specified ear tag. Every death and every import or export needs to be tracked here as well.
 \paragraph{Reliability Of The Data Provided By HI Tier}
 According to \citep{personalCom} the data given by HI Tier is very reliable, since it has build in tests for the consistency of the data. For example a farm that did not notify the system that it bought a cow will not be able to tell the system that this cow died. On the other hand it could happen that the wrong ear tag number is put into the system or that farmers do not apply an ear tag before a calf dies, because they want to save money in case the calf dies early. Therefore some errors could occur and the statistics could be wrong.
 \section{Breeding Dynamics}\label{chap:breedingDynamics}
@@ -84,7 +84,7 @@ keepaspectratio]{endemicFractions40000.png}
 \label{fig:sharesCompartmentsDifferentFarmSizes}
 \end{figure} 
 
-\section{Trading Dynamics} 
+\section{Trading Dynamics}\label{chap:tradingDynamics}
 Unfortunately the demography of cattle is not independent from the trading behavior of the different farms which is why they could not be discussed in section \ref{chap:breedingDynamics}. The complex behavior of the market is dependant on a few variables which have been discussed in section \ref{chap:market}:
 \begin{itemize}
 \item behavior of the cow well farm and slaughterhouse: dump or demand

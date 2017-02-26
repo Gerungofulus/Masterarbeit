@@ -1,7 +1,14 @@
 \chapter{Results}
+In this chapter the results produced by the application of the different trading strategies are discussed, but first of all final instructions on the setup of the system are given.
+\section{Final Setup}
+After the previously performed trading analysis in chapter \ref{chap:tradingDynamics} the configuration from scenario has been used in all further studies. The corresponding ini files can be found in the appendix in \ref{chap:iniContainment}. They resemble the description given in chapter \ref{chap:testedStrategiesDesc}. The data given in chapter \ref {chap:rlDataRegulationGermany} has been used to set up the system. In order to keep the runtime reasonable for this thesis and testing, farms with a smaller size than 20 cows have been excluded from the simulation. The argument for this is that small farms can not build a sustainable business and are rather run by families, which want to make some money besides their daytime jobs. They will most likely not buy and sell cows all the time and therefore not play a big role in the spreading of BVD on the network. This assumption has not been proven by now. \citep{steinbach16} provided a categorisation of nodes based on their trading behavior as markets, traders, self-sustaining premises, fattening and breeding farms. This method could be refined to build a more realistic model of the market in the future. 
+Applying this idea removes $15272\cows$ ($4.46\,\%$) in $5544\,\text{farms}$ ($82.16\,\%$).
+Since 
 \section{Strategy I - No Strategy}
+
 \section{Strategy II - Old BVD regulation}
 \section{Strategy III - New BVD regulation}
 \section{Strategy IV - New BVD regulation + Vaccination}
 \section{Strategy V - New BVD regulation + young calf window}
 \section{Strategy VI - New BVD regulation + Vaccination + young calf window} 
+\section{Comparison of the different Strategies}
