@@ -7,7 +7,7 @@ Applying this idea removes $15272\cows$ ($4.46\,\%$) in $5544\,\text{farms}$ ($8
 Since the behavior of the different farms has not been studied and implemented in this simulation fully and because the system size in terms of farms is much smaller than the actual network size of all of Thuringia, the implementation of a more refined and realistic market behavior has been postponed. 
 The data given in chapter \ref {chap:rlDataRegulationGermany} has been used to set up the system. This was done by randomly choosing $2\,\%$ of the farms to be set up with the shares of the different compartments of previously with PIs contaminated farms. The other $98\,\%$ of the farms were set up with the shares of all compartments corresponding to now previous contamination by PIs. With all these measures taken multiple simulations where run. The global prevalence strongly depends on the farms chosen to be infected in the beginning. If smaller farms are contaminated in the beginning, the disease will need much longer to spread or even die out, since far less animals are infected and the in- and out-degree of these small farms are relatively small, which leads to a smaller infection rate for all other nodes. With the aim of limiting the amount of scenarios to be discussed, one scenario which exposed a prevalence close to the big single farm with approximately $40000\cows$ from section \ref{chap:diseaseDynamicsDesc} has been chosen. It exhibited the highest global prevalence after $20\days$. The seed from this run is used in all runs for the different strategies, to make sure that the transients for the system for all strategies look exactly the same. By setting the seed of the random number generator, two streams of random numbers produced by this random number generator will be exactly the same. This is used to have the same events happen during the transient phase for all strategies, leading to results, which can be compared. The containment strategies in each scenario are turned on on a global scale after $10000\days$. The cows from the cow well farm still 
 \section{Strategy I - No Strategy}
-This first run corresponds to the control group in clinical tests of medication. As can be seen in figure \ref{fig:cont1Behav}, for some not entirely clear reason the number of recovered animals and therefore their share on the total population drops, giving rise to the number of susceptibles. 
+This first run corresponds to the control group in clinical tests of medication. As can be seen in figure \ref{fig:cont1Behav}, the simulation reaches a stable state with some smaller oscillations between $5000\text{ and } 10000\days$. The numbers of TIs and PIs are almost the same with the number of TIs being slightly higher, at around $1.75\,\%$ of the total population. The number of recovered animals stabilizes around $80\,\%$ of the population. 
 \begin{figure}[htbp]
 \begin{minipage}{0.5\textwidth}
 \centering
@@ -22,7 +22,7 @@ keepaspectratio]{cont1endemicFractions.png}
 \caption[Endemic Behavior in Containment Strategy One]{}
 \label{fig:cont1Behav}
 \end{figure} 
-This all happens while the numbers of TIs and PIs stay stable. The sum stays stable, but starts to oscillate a little bit as the number of recovered starts to oscillate around $8000\days$. These oscillations express themselves in a slightly thicker line for both, the number of recovered animals and the sum of all compartments. The stable 
+
 
 \section{Strategy II - Old BVD regulation}
 

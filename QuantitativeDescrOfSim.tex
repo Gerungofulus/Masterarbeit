@@ -85,7 +85,8 @@ keepaspectratio]{endemicFractions40000.png}
 \end{figure} 
 
 \section{Trading Dynamics}\label{chap:tradingDynamics}
-Unfortunately the demography of cattle is not independent from the trading behavior of the different farms which is why they could not be discussed in section \ref{chap:breedingDynamics}. The complex behavior of the market is dependant on a few variables which have been discussed in section \ref{chap:market}:
+Unfortunately the demography of cattle is not independent from the trading behavior of the different farms which is why they could not be discussed in section \ref{chap:breedingDynamics}. 
+The complex behavior of the market is dependant on a few variables which have been discussed in section \ref{chap:market}:
 \begin{itemize}
 \item behavior of the cow well farm and slaughterhouse: dump or demand
 \item if the market is set to ignore the type of demand a farm announces
@@ -110,7 +111,7 @@ At the moment all of these three choices are only binary. This leads to eight di
 \label{tab:tradingConfig} 
 \end{center}
 \end{table}
-The other parameters for all of these tests are kept stable. The most important parameters, the rejuvenation rate $\omega$ and the trading interval $dt_\text{trade}$ are chosen as $\omega =27.9\,\%$ (according to \citep{personalCom} and $\text{d}t_\text{trade} = 7\days$. The farm size distribution of Thuringia was chosen for this study with the market implemented as it was described in chapter \ref{chap:market}. In case the slaughterhouse behavior was set to "demand", the number demanded by the slaughterhouse is set to 10000. The simulation is run for a total of $30000\days$
+The other parameters for all of these tests are kept stable. The most important parameters, the rejuvenation rate $\omega$ and the trading interval $dt_\text{trade}$ are chosen as $\omega =27.9\,\%$ (according to \citep{personalCom} and $\text{d}t_\text{trade} = 7\days$. The farm size distribution of Thuringia was chosen for this study with the market implemented as it was described in chapter \ref{chap:market}. In case the slaughterhouse behavior was set to "demand", the number demanded by the slaughterhouse is set to 10000. The simulation is run for a total of $30000\days$.
 
 \subsection{Data From HIT}
 The plots in figure \ref{fig:demographyGermany} show the time of cattle leaving a farm. Both plots are semi-logarithmic. It can be seen that the graph of the plots roughly follows the trades in shape. This makes sense since all cows need to be traded before they can be slaughtered. For the male cows the peaks in the slaughtered animals make up for $8-10/12$ of the number of trades. In the minimum between the trades make up for $3/12$. The animals which die due to other (natural) reasons make only up for a small percentage of all deaths.
@@ -361,3 +362,5 @@ keepaspectratio]{scen7totalEndemicNumbers.png}
 
 \subsection{Conclusion}
 For the different tests of the containment strategies the transients will be cut off and neglected. To ensure that the starting conditions are the same, the seed for all simulations will be set the same so that the first ten thousand days will be the same.
+\section{Network Structure}\label{chap:networkStructQuantitative}
+As shown by \citep{eames2008modelling}, the network structure has the biggest impact on the spread of diseases which also explains the importance of a high speed when it comes to putting security measures such as quarantine in place \citep{pereira2015control}. The effectiveness of the containment strategies tested in this thesis and transferability of these results to reality depend strongly on the studied network.
