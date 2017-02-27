@@ -2,7 +2,7 @@
 Computers have been used for numerical studies since their invention. Especially in the field of nonlinear dynamics and complex systems they are often the only useful tool to analyze certain systems because their chaotic behavior cannot be easily predicted using analytical studies. Different kinds of simulations haven been developed throughout the days. For the simulation of the disease spread in the case of BVD we decided to use an agent- and event-based model with a stochastically motivated approach to calculating the infection probability and other important dynamics. The statistical data which defines the system's data has been provided by \citep{personalCom} and further explored by \citep{steinbach16}. This chapter will explain the details of the setup system.
 \section{Event based simulation}
 Most numerical studies work with quasi continuous integrators. By changing the system state in small time steps $dt$ the system can be approximated. Another approach has been chosen for this simulation. Some integrators adapt the time steps $dt$ so that significant changes are made during every step of the simulation. The event-based simulation uses a very similar approach. The system calculates the time of the next event and skips the time interval till the next event. One event can also trigger a series of other events that will be scheduled. 
-\section{Cows (Agents)}
+\section{Bovine (Agents)}
 The simulation, which has been developed for this study, is an agent-based simulation. The life cycle of every single cow is simulated and tracked. Cows are the smallest entity of the simulation. Their state is made up of different variables. A calf will only become a new entity of type Cow at the time of birth. The most important variables are 
 \begin{itemize}
 \item date of birth (to calculate the age),
@@ -12,6 +12,8 @@ The simulation, which has been developed for this study, is an agent-based simul
 \item sex,
 \item the remaining number of calves and
 \item result of the last test.
+\item the known status which can be acquired by testing the bovine
+\item the number of vaccinations it received and when the vaccination will stop working
 \end{itemize}
 
 \section{Farms}
