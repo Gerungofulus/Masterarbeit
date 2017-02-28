@@ -8,10 +8,11 @@ EEC regulation \citep{verordnung17602000}, which has been transformed into an EU
 nation wide regulations were out in place, to prevent further spreading of BVDV within German cattle farms. This old regulation from 2010 has been changed in 2016.
 \subsubsection{Old BVD Regulation}
 The old BVD regulation \citep{bvdvoold} defines a few rules, which have to be followed. First of all all newborn calves have to be tested for BVDV and older cows which are supposed to be traded, need to be tested, too. The leaflet \citep{bvdvorheinlandpfold} recommends combining the test with the application of the ear tag of each calve. It furthermore states that the cost for the tests as well as the removal of ill cows within two weeks after a positive test will be paid by the federal state, which is a measure taken by multiple federal states according to \citep{personalCom}. If a bovine is only brought directly to the slaughterhouse, the veterinary or a fattening farm, which only sell cows to a slaughterhouse, it does not need to be tested. Furthermore the regulation defines the status of a farm to be BVD free, which means that for at least twelve months all calves over the age of six months have been tested negative and no signs of an infection have been noticed. The status can be maintained by further negative test results. As mentioned in the previous chapter on virological tests, farmers can decide to wait for a second positive test before removing the cow, but the leaflet mentioned above recommends to only do that for very valuable calves. If a calve has not been tested again after 60 days, it needs to be removed without any further options. According to \citep{openagrar_mods_00019481} the state of the animal needs to reported to the HIT database. It states that 
-\subsubsection{New BVD Regulation}
+\subsubsection{New BVD Regulation}\label{chap:newBVDRegulationDesc}
 In 2016 the new BVD regulation \citep{bvdverordnungaenderung},\citep{bvdvonew} replaced the older version from 2010 (see above). It reduced the maximum timespan for a second test from 60 to 40 days and after a positive test the respecting farm is put under quarantine till the second test has taken place. This change of the maximum time for a second test as well as the quarantine might be crucial. It was shown by \citep{pereira2015control} that for an SIS model the time spend before putting infected individuals into quarantine can have a huge impact on the further spread of the disease. If cows are tested immediately after birth, the response time before putting the farm into quarantine should be relatively low. Even if the calf is tested a second time, it can only infect others on the same premise.
+On the other hand many federal states paid farmers a bonus if they removed cows fastly \citep{bvdvorheinlandpfold},\citep{personalCom}, because of the need to remove PIs as fast as possible, so the effect of the new BVD might be negligible.
 \subsubsection{Definitions of Young Calf Window Procedure}\label{chap:ycwdef}
-Different (federal) states decided on different rules for choosing the cows to be tested for the young calf window testing procedure. 
+Different (federal) states decided on different rules for choosing the cows to be tested for the young calf window testing procedure. This part of the thesis gives a small overview on different implementations of the YCW provided by \citep{personalCom}.
 \subparagraph{Thuringia}\label{chap:stratThuringia}
 \begin{itemize}
 \item $n = 15\,\text{cows}$ need to be tested (compare to table \ref{tab:certaintyPrevalenceTest}).
@@ -57,11 +58,8 @@ All containment strategies aim to lower the probability of infection. Since the 
 Testing and culling of animals, which were tested positive, reduces the number of infected (TIs and PIs), especially the number of PIs. This is basically done by increasing the death rate of both groups. 
 Quarantine changes the structure of the network. It will set at least the outgoing component of the adjacency matrix of this farm to zero, thereby reducing the probability for other farms to add a TI or PI to their farm. Unfortunately the test does not detect all infecteds, so there is still a small entry rate of PIs and TIs in every farm.
 The YCW is just another way of improving the certainty that a infection in the herd is detected thereby increasing the effect of the other two methods.
-\subsection{Prevalences without any Regulation}
 
-\paragraph{Germany}
-\subsection{Regulation in Germany}\label{chap:rlDataRegulationGermany}
-\paragraph{Thuringia}
+\subsection{Prevalence in Thringia}\label{chap:rlDataRegulationGermany}
 The distribution of the different compartments of a single farm with PIs which have been in this farm for some time is the following:
 \\
 \begin{minipage}[t]{0.5\linewidth}
@@ -83,5 +81,5 @@ PIs for a long time
     \end{itemize}
 \end{minipage}
 \\
-A survey across all of Thuringia in 2010 revealed those distributions. This survey revealed that $534\,\text{PIs}$ were living in $211\,\text{farms}(\approx 2\,\%)$. of all farms.\footnote{ (Quelle) }
+A survey across all of Thuringia in 2010 revealed those distributions. This survey revealed that $534\,\text{PIs}$ were living in $211\,\text{farms}(\approx 2\,\%)$. of all farms. This data will be used to initialize the simulation.\footnote{ (Quelle) }
 
